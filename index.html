@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Geometri dan Konversi Suhu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav {
+            background: #2980b9;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        nav a:hover {
+            background: #1abc9c;
+        }
+        h1 {
+            margin: 0;
+        }
+        .container {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Pop-up Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Kalkulator Geometri dan Konversi Suhu</h1>
+    </header>
+    <nav>
+        <a href="#luassegitiga">Luas Segitiga</a>
+        <a href="#luaspersegipanjang">Luas Persegi Panjang</a>
+        <a href="#konversisuhu">Konversi Suhu</a>
+    </nav>
+
+    <!-- Luas Segitiga -->
+    <div class="container" id="luassegitiga">
+        <h2>Luas Segitiga</h2>
+        <label for="alas">Alas (cm): </label>
+        <input type="number" id="alas" required>
+        <label for="tinggi">Tinggi (cm): </label>
+        <input type="number" id="tinggi" required>
+        <button onclick="hitungLuasSegitiga()">Hitung Luas</button>
+    </div>
+
+    <!-- Luas Persegi Panjang -->
+    <div class="container" id="luaspersegipanjang">
+        <h2>Luas Persegi Panjang</h2>
+        <label for="panjang">Panjang (cm): </label>
+        <input type="number" id="panjang" required>
+        <label for="lebar">Lebar (cm): </label>
+        <input type="number" id="lebar" required>
+        <button onclick="hitungLuasPersegiPanjang()">Hitung Luas</button>
+    </div>
+
+    <!-- Konversi Suhu -->
+    <div class="container" id="konversisuhu">
+        <h2>Konversi Suhu</h2>
+        <label for="celcius">Suhu (°C): </label>
+        <input type="number" id="celcius" required>
+        <button onclick="konversiSuhu()">Konversi ke °F</button>
+    </div>
+
+    <!-- Modal untuk menampilkan hasil -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="tutupModal()">&times;</span>
+            <p id="hasilModal"></p>
+        </div>
+    </div>
+
+    <script>
+        function hitungLuasSegitiga() {
+            const alas = parseFloat(document.getElementById("alas").value);
+            const tinggi = parseFloat(document.getElementById("tinggi").value);
+            const luas = 0.5 * alas * tinggi;
+            document.getElementById("hasilModal").innerText = "Luas Segitiga: " + luas + " cm²";
+            tampilkanModal();
+        }
+
+        function hitungLuasPersegiPanjang() {
+            const panjang = parseFloat(document.getElementById("panjang").value);
+            const lebar = parseFloat(document.getElementById("lebar").value);
+            const luas = panjang * lebar;
+            document.getElementById("hasilModal").innerText = "Luas Persegi Panjang: " + luas + " cm²";
+            tampilkanModal();
+        }
+
+        function konversiSuhu() {
+            const celcius = parseFloat(document.getElementById("celcius").value);
+            const fahrenheit = (celcius * 9/5) + 32;
+            document.getElementById("hasilModal").innerText = "Suhu dalam Fahrenheit: " + fahrenheit + " °F";
+            tampilkanModal();
+        }
+
+        function tampilkanModal() {
+            document.getElementById("myModal").style.display = "block";
+        }
+
+        function tutupModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        // Tutup modal jika pengguna mengklik di luar modal
+        window.onclick = function(event) {
+            const modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+
