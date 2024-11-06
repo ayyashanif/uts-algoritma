@@ -1,200 +1,99 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalkulator Geometri dan Konversi Suhu</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        header {
-            background-color: #3498db;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-        }
-        nav {
-            background: #2980b9;
-            padding: 10px 0;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            margin: 0 5px;
-            border-radius: 4px;
-            transition: background 0.3s;
-        }
-        nav a:hover {
-            background: #1abc9c;
-        }
-        h1 {
-            margin: 0;
-        }
-        .container {
-            background: white;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        label {
-            display: block;
-            margin: 10px 0 5px;
-        }
-        input[type="number"] {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        button {
-            padding: 10px 15px;
-            background-color: #3498db;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #2980b9;
-        }
-
-        /* Pop-up Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgb(0,0,0);
-            background-color: rgba(0,0,0,0.4);
-            padding-top: 60px;
-        }
-        .modal-content {
-            background-color: #fefefe;
-            margin: 5% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 500px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <h1>Kalkulator Geometri dan Konversi Suhu</h1>
-    </header>
-    <nav>
-        <a href="#luassegitiga">Luas Segitiga</a>
-        <a href="#luaspersegipanjang">Luas Persegi Panjang</a>
-        <a href="#konversisuhu">Konversi Suhu</a>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Ayyas A.H's portfolio showcasing web development and programming skills." />
+    <meta name="keywords" content="portfolio, web developer, programmer, Ayyas A.H" />
+    <meta name="author" content="Ayyas A.H" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css" />
+    <title>My Portfolio</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-lg">
+      <div class="container">
+        <a class="navbar-brand" href="#">My Portfolio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About Me</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </nav>
 
-    <!-- Luas Segitiga -->
-    <div class="container" id="luassegitiga">
-        <h2>Luas Segitiga</h2>
-        <label for="alas">Alas (cm): </label>
-        <input type="number" id="alas" required>
-        <label for="tinggi">Tinggi (cm): </label>
-        <input type="number" id="tinggi" required>
-        <button onclick="hitungLuasSegitiga()">Hitung Luas</button>
-    </div>
+    <!-- Jumbotron -->
+    <section class="jumbotron text-center">
+      <img src="img/ayyas.jpg 2.jpg" alt="Ayyas A.H - Web Developer" width="200" class="rounded-circle img-thumbnail" />
+      <h1 class="display-4">Ayyas A.H</h1>
+      <p class="lead">College Student | Web Developer</p>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path
+          fill="rgb(18, 83, 174)"
+          fill-opacity="1"
+          d="M0,64L30,96C60,128,120,192,180,192C240,192,300,128,360,133.3C420,139,480,213,540,213.3C600,213,660,139,720,101.3C780,64,840,64,900,64C960,64,1020,64,1080,96C1140,128,1200,192,1260,197.3C1320,203,1380,149,1410,122.7L1440,96L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"
+        ></path>
+      </svg>
+    </section>
 
-    <!-- Luas Persegi Panjang -->
-    <div class="container" id="luaspersegipanjang">
-        <h2>Luas Persegi Panjang</h2>
-        <label for="panjang">Panjang (cm): </label>
-        <input type="number" id="panjang" required>
-        <label for="lebar">Lebar (cm): </label>
-        <input type="number" id="lebar" required>
-        <button onclick="hitungLuasPersegiPanjang()">Hitung Luas</button>
-    </div>
-
-    <!-- Konversi Suhu -->
-    <div class="container" id="konversisuhu">
-        <h2>Konversi Suhu</h2>
-        <label for="celcius">Suhu (°C): </label>
-        <input type="number" id="celcius" required>
-        <button onclick="konversiSuhu()">Konversi ke °F</button>
-    </div>
-
-    <!-- Modal untuk menampilkan hasil -->
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="tutupModal()">&times;</span>
-            <p id="hasilModal"></p>
+    <!-- Projects Section -->
+    <section id="projects" class="container py-5">
+      <h2 class="text-center mb-4">Projects</h2>
+      <div class="row">
+        <!-- Geometry Calculator -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://via.placeholder.com/300" class="card-img-top" alt="Geometry Calculator" />
+            <div class="card-body">
+              <h5 class="card-title">Geometric Calculator</h5>
+              <p class="card-text">A simple calculator to compute the area and perimeter of basic geometric shapes like squares, rectangles, circles, and triangles.</p>
+              <a href="#" class="btn btn-primary">View Project</a>
+            </div>
+          </div>
         </div>
-    </div>
 
-    <script>
-        function hitungLuasSegitiga() {
-            const alas = parseFloat(document.getElementById("alas").value);
-            const tinggi = parseFloat(document.getElementById("tinggi").value);
-            const luas = 0.5 * alas * tinggi;
-            document.getElementById("hasilModal").innerText = "Luas Segitiga: " + luas + " cm²";
-            tampilkanModal();
-        }
+        <!-- Temperature Converter -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://via.placeholder.com/300" class="card-img-top" alt="Temperature Converter" />
+            <div class="card-body">
+              <h5 class="card-title">Temperature Converter</h5>
+              <p class="card-text">A tool to convert temperatures between Celsius, Fahrenheit, and Kelvin.</p>
+              <a href="#" class="btn btn-primary">View Project</a>
+            </div>
+          </div>
+        </div>
 
-        function hitungLuasPersegiPanjang() {
-            const panjang = parseFloat(document.getElementById("panjang").value);
-            const lebar = parseFloat(document.getElementById("lebar").value);
-            const luas = panjang * lebar;
-            document.getElementById("hasilModal").innerText = "Luas Persegi Panjang: " + luas + " cm²";
-            tampilkanModal();
-        }
+        <!-- Resistor Calculator -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://via.placeholder.com/300" class="card-img-top" alt="Resistor Calculator" />
+            <div class="card-body">
+              <h5 class="card-title">Resistor Calculator</h5>
+              <p class="card-text">A calculator that helps you calculate resistor values based on Ohm's Law or using parallel and series configurations.</p>
+              <a href="#" class="btn btn-primary">View Project</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        function konversiSuhu() {
-            const celcius = parseFloat(document.getElementById("celcius").value);
-            const fahrenheit = (celcius * 9/5) + 32;
-            document.getElementById("hasilModal").innerText = "Suhu dalam Fahrenheit: " + fahrenheit + " °F";
-            tampilkanModal();
-        }
-
-        function tampilkanModal() {
-            document.getElementById("myModal").style.display = "block";
-        }
-
-        function tutupModal() {
-            document.getElementById("myModal").style.display = "none";
-        }
-
-        // Tutup modal jika pengguna mengklik di luar modal
-        window.onclick = function(event) {
-            const modal = document.getElementById("myModal");
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
-
-</body>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
 </html>
-
-
-
-
-

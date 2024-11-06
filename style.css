@@ -1,0 +1,6 @@
+.jumbotron {
+  background-color: rgb(12, 68, 147);
+  text-align: center;
+  color: white; /* Tambahkan warna sesuai keinginan, misalnya 'white' */
+  padding-top: 2rem;
+}
